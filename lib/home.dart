@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:providerexample/second.dart';
 
 class homepage extends StatefulWidget {
   const homepage({super.key});
@@ -36,16 +37,28 @@ class _homepageState extends State<homepage> {
                   }),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Second(numbers: numbers)));
+                },
+                child: const Text("Open",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w800))),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
-
         onPressed: () {
           int num = numbers.last;
           setState(() {
-            numbers.add(num+1);
+            numbers.add(num + 1);
           });
         },
       ),
